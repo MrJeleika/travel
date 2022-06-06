@@ -1,0 +1,49 @@
+
+// to %
+
+@function procent($pxOne, $pxTwo){
+  $result: math.div($pxOne, $pxTwo) * 100%;
+  @return $result;
+}
+
+// to REM
+
+@function rem($px){
+  $result: math.div($px, 16) + rem;
+  @return $result;
+}
+
+// to EM
+
+@function em($px){
+  $result: math.div($px, 16) + em;
+  @return $result;
+}
+
+
+//* Adaptive font
+// $mobSize - mobile font size
+// $pcSize - layout font size
+// $minWidth - mobile min width, default: 320px
+// $maxWidth - layout width, default: 1920px
+@mixin adaptiveFont($mobSize, $pcSize, $minWidth : 320, $maxWidth : 1920){
+  $addPcSize: $pcSize - $mobSize;
+  $addMobSize: $addPcSize + $addPcSize * 0.7;
+  @media (min-width: 767px){
+    font-size: calc(#{$mobSize + px} + #{$addPcSize} * (100vw / #{$maxWidth}));
+  }
+  @media (max-width: 767px){
+    font-size: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - #{$minWidth + px})/ #{$maxWidth}));
+  }
+}
+
+//*Animate item
+// $from - from what side animate, traslate(10%,0) - right
+@mixin animateItem($from,$to: translate(0,0)){
+  transform: #{$from};
+  opacity: 0;
+  &._active{
+    opacity: 1;
+    transform: #{$to};
+  }
+}
