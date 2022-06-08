@@ -1,39 +1,367 @@
 @use 'sass:math';
 @import "nullstyle.scss";
 @import "functions.scss";
+@import "flexbin.scss";
 
 
 /* ----------------------* */
 
-$calc:calc(100vh - 256px);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 
 
 /* Main styles */
 html,
 body {
   height: 100%;
-  background: #333;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #fff;
+  background: #fff;
+  font-family: Montserrat;
+  line-height: 1;
+  overflow-x: hidden;
 }
 
-.wrapper {
-   min-height: 100%;
-   padding: 20px;
-
+.container{
+  max-width: 1615px; // 1675 + 40 padding
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
 }
+
 .header {
-   background: #000;
-   padding: 10px;
-   @include animateItem(translate(0,20%),translate(0,0));
-   transition: all 0.8s ease-in-out;
-   &__h1 {
-      font-weight: 900;
-      @include adaptiveFont(20, 40);
-   }
-}
-.content {
-   padding: 10px;
-   @include adaptiveFont(16, 24);
 
+}
+.main {
+  height: 100vh; // size of image
+  position: relative;
+  &__img {
+    position: absolute;
+    height: 100vh;
+    object-fit: cover;
+    width: 100%;
+    z-index: 1;
+  }
+
+  &__title {
+    @include animateItem(translate(0,0));
+    transition: 0.8s ease-out 0.2s;
+    color: #ffffff;
+    @include adaptiveFont(62,100);
+    text-align: center;
+    font-weight: 700;
+    margin-top: 37.037vh;
+  }
+
+  &__subtitle {
+    @include animateItem(translate(0,0));
+    transition: 0.8s ease-out 1.1s;
+    text-align: center;
+    @include adaptiveFont(22,30);
+    letter-spacing: 4.2px;
+    color: #fff;
+  }
+  &__button{
+    @include animateItem(translate(0,0));
+    transition: 0.8s ease-out 2.1s;
+    margin-top: 22px;
+    justify-content: center;
+  }
+  &__body{
+    position: relative;
+    z-index: 5;
+    height: 100vh;
+    padding: 0 10px;
+  }
+  &__social{
+    opacity: 1; // when expanding to >768px show it   
+    @include animateItem(translate(20px,0));
+    transition: 0.7s ease 3s;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 20px;
+    top: 25.92688vh; 
+    > li{
+      margin: 35px 0;
+    }
+    > li:first-child{
+      margin: 0 0 35px 0;
+    }
+  }
+}
+.nav {
+  @include animateItem(translate(0, -20px));
+  transition: 0.7s ease 3s;
+  padding-top: 44px;
+  &__body {
+  }
+
+  &__list {
+
+    justify-content: center;
+    display: flex;
+    > li{
+      margin: 0 50px;
+    }
+  }
+
+  &__link {
+
+    @include adaptiveFont(16,20);
+    color: #ffffff !important;
+    letter-spacing: 2.8px;
+  }
+}
+.social__link{
+   writing-mode: vertical-rl;
+}
+
+.transparent-button{
+  display: flex;
+  &-link{
+    @include adaptiveFont(14,18);
+    text-align: center;
+    padding: 20px 84px;
+  }
+  &-link-white{
+    border: 2px solid #ffffff;
+    color: #ffffff !important;
+  }
+  &-link-black{
+    border: 2px solid #000;
+    color: #000 !important;
+  }
+}
+
+
+
+
+.about {
+margin-bottom: 80px;
+  &__card {
+    padding: 60px 0;
+  }
+}
+
+.card-row {
+
+  &__row {
+    display: flex;
+  }
+
+  &__item {
+    padding: 0 10px;
+    display: flex;
+    flex: 0 0 50%;
+    align-items: center;
+    &-hide{
+      display: flex;
+      justify-content: right;
+    }
+  }
+
+  &__info {
+  }
+
+  &__name {
+    color: #c4c4c4;
+    @include adaptiveFont(12,22);
+    font-weight: 500;
+    letter-spacing: 3.08px;
+    margin-bottom: 30px;
+  }
+
+  &__title {
+    color: #000000;
+    @include adaptiveFont(18,30);
+    font-weight: 500;
+    letter-spacing: 4.2px;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+  }
+
+  &__text {
+    color: #5b5b5c;
+    @include adaptiveFont(14,22);
+    letter-spacing: 3.08px;
+    margin-bottom: 50px;
+  }
+
+  &__button {
+  }
+
+  &__image {
+    display: flex;
+    justify-content: center;
+    > img{
+      max-width: 100%;
+    }
+  }
+}
+
+.gallery {
+
+  &__title {
+    color: #000000;
+    @include adaptiveFont(20,32);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 7.2px;
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  &__subtitle {
+    color: #5b5b5c;
+    text-align: center;
+    @include adaptiveFont(16,28);
+    letter-spacing: 4.2px;
+    font-weight: 500;
+    margin: 0 auto;
+  }
+
+  &__images {
+    flex-wrap: wrap;
+
+  }
+
+  &__image {
+    max-height: 447px;
+    > img{
+      max-height: 447px;
+      max-width: 100%;
+    }
+    &-small{
+
+    }
+    &-big{
+
+    }
+  }
+
+  &__count {
+    margin-top: 100px;
+    text-align: center;
+    color: #c5c5c5;
+    @include adaptiveFont(18,30);
+    font-weight: 500;
+    letter-spacing: 4px;
+    cursor: pointer;
+  }
+}
+.count{
+  color: #000000;
+
+  &-inactive{
+    color: #c5c5c5;
+  }
+}
+.block {
+
+  &__title {
+
+  }
+
+  &__subtitle {
+    margin-bottom: 90px;
+    max-width: 70vw;
+  }
+}
+
+
+
+
+
+@media (max-width: 1440px) {
+  .container{
+    max-width: 1440px; // 1380 + 60 padding
+    margin: 0 auto;
+    padding: 0 30px;
+    width: 100%;
+  }
+  .gallery{
+    &__count{
+      margin-top: 60px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .container{
+    max-width: 1024px; // 964 + 60 padding
+    margin: 0 auto;
+    padding: 0 30px;
+    width: 100%;
+  }
+  .gallery{
+  }
+}
+@media (max-width: 768px) {
+  .main{
+    &__social{
+      display: none;
+    }
+    &__title{
+      margin-top: 34vh;
+      margin-bottom: 10px;
+    }
+  }
+  .nav{
+    &__list{
+      > li{
+        margin: 0 25px;
+      }
+    }
+  }
+  .transparent-button{
+    &-link{
+      padding: 16px 60px;
+    }
+  }
+  .card-row{
+    &__item{
+      flex: 0 0 100%;
+      &-hide{
+        display: none;
+      }
+    }
+    &__name{
+      margin-bottom: 15px;
+    }
+    &__title{
+      margin-bottom: 15px;
+    }
+    &__image{
+      margin-bottom: 20px;
+    }
+    &__text{
+      margin-bottom: 20px;
+      letter-spacing: 1.5px;
+    }
+  }
+  .about{
+    &__card{
+      padding: 40px 0;
+    }
+  }
+  .gallery{
+    &__title{
+      letter-spacing: 6.5px;
+      margin-bottom: 20px;
+    }
+    &__subtitle{
+      letter-spacing: 2px;
+      margin-bottom: 25px;
+      max-width: 80vw;
+    }
+    &__count{
+      margin-top: 40px;
+    }
+  }
+}
+@media (max-width: 425px) {
+  .container{
+    max-width: 425px; // 395 + 30 padding
+    margin: 0 auto;
+    padding: 0 15px;
+    width: 100%;
+  }
 }
