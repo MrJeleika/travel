@@ -17,21 +17,22 @@ body {
   font-family: Montserrat;
   line-height: 1;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-.container{
+.container {
   max-width: 1615px; // 1675 + 40 padding
   margin: 0 auto;
   padding: 0 20px;
   width: 100%;
 }
 
-.header {
+.header {}
 
-}
 .main {
   height: 100vh; // size of image
   position: relative;
+
   &__img {
     position: absolute;
     height: 100vh;
@@ -41,91 +42,102 @@ body {
   }
 
   &__title {
-    @include animateItem(translate(0,0));
+    @include animateItem(translate(0, 0));
     transition: 0.8s ease-out 0.2s;
     color: #ffffff;
-    @include adaptiveFont(62,100);
+    @include adaptiveFont(62, 100);
     text-align: center;
     font-weight: 700;
     margin-top: 37.037vh;
   }
 
   &__subtitle {
-    @include animateItem(translate(0,0));
+    @include animateItem(translate(0, 0));
     transition: 0.8s ease-out 1.1s;
     text-align: center;
-    @include adaptiveFont(22,30);
+    @include adaptiveFont(22, 30);
     letter-spacing: 4.2px;
     color: #fff;
   }
-  &__button{
-    @include animateItem(translate(0,0));
+
+  &__button {
+    @include animateItem(translate(0, 0));
     transition: 0.8s ease-out 2.1s;
     margin-top: 22px;
     justify-content: center;
   }
-  &__body{
+
+  &__body {
     position: relative;
     z-index: 5;
     height: 100vh;
     padding: 0 10px;
   }
-  &__social{
+
+  &__social {
     opacity: 1; // when expanding to >768px show it   
-    @include animateItem(translate(20px,0));
+    @include animateItem(translate(20px, 0));
     transition: 0.7s ease 3s;
     display: flex;
     flex-direction: column;
     position: absolute;
     right: 20px;
-    top: 25.92688vh; 
-    > li{
+    top: 25.92688vh;
+
+    >li {
       margin: 35px 0;
     }
-    > li:first-child{
+
+    >li:first-child {
       margin: 0 0 35px 0;
     }
   }
 }
+
 .nav {
   @include animateItem(translate(0, -20px));
   transition: 0.7s ease 3s;
   padding-top: 44px;
-  &__body {
-  }
+
+  &__body {}
 
   &__list {
 
     justify-content: center;
     display: flex;
-    > li{
+
+    >li {
       margin: 0 50px;
     }
   }
 
   &__link {
 
-    @include adaptiveFont(16,20);
+    @include adaptiveFont(16, 20);
     color: #ffffff !important;
     letter-spacing: 2.8px;
   }
 }
-.social__link{
-   writing-mode: vertical-rl;
+
+.social__link {
+  writing-mode: vertical-rl;
 }
 
-.transparent-button{
+.transparent-button {
   display: flex;
-  &-link{
-    @include adaptiveFont(14,18);
+
+  &-link {
+    @include adaptiveFont(14, 18);
     text-align: center;
     padding: 20px 84px;
   }
-  &-link-white{
+
+  &-link-white {
     border: 2px solid #ffffff;
     color: #ffffff !important;
   }
-  &-link-black{
+
+  &-link-black {
     border: 2px solid #000;
     color: #000 !important;
   }
@@ -135,7 +147,8 @@ body {
 
 
 .about {
-margin-bottom: 80px;
+  margin-bottom: 80px;
+
   &__card {
     padding: 60px 0;
   }
@@ -152,18 +165,18 @@ margin-bottom: 80px;
     display: flex;
     flex: 0 0 50%;
     align-items: center;
-    &-hide{
+
+    &-hide {
       display: flex;
       justify-content: right;
     }
   }
 
-  &__info {
-  }
+  &__info {}
 
   &__name {
     color: #c4c4c4;
-    @include adaptiveFont(12,22);
+    @include adaptiveFont(12, 22);
     font-weight: 500;
     letter-spacing: 3.08px;
     margin-bottom: 30px;
@@ -171,7 +184,7 @@ margin-bottom: 80px;
 
   &__title {
     color: #000000;
-    @include adaptiveFont(18,30);
+    @include adaptiveFont(18, 30);
     font-weight: 500;
     letter-spacing: 4.2px;
     text-transform: uppercase;
@@ -180,28 +193,30 @@ margin-bottom: 80px;
 
   &__text {
     color: #5b5b5c;
-    @include adaptiveFont(14,22);
+    @include adaptiveFont(14, 22);
     letter-spacing: 3.08px;
     margin-bottom: 50px;
   }
 
-  &__button {
-  }
+  &__button {}
 
   &__image {
     display: flex;
+    box-shadow: 14px 15px 46px 1px rgba(0, 0, 0, 0.18);
     justify-content: center;
-    > img{
+
+    >img {
       max-width: 100%;
     }
   }
 }
 
-.gallery {
+
+.block {
 
   &__title {
     color: #000000;
-    @include adaptiveFont(20,32);
+    @include adaptiveFont(20, 32);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 7.2px;
@@ -212,10 +227,23 @@ margin-bottom: 80px;
   &__subtitle {
     color: #5b5b5c;
     text-align: center;
-    @include adaptiveFont(16,28);
+    @include adaptiveFont(16, 28);
     letter-spacing: 4.2px;
     font-weight: 500;
     margin: 0 auto;
+    max-width: 70vw;
+  }
+}
+
+
+.gallery {
+  margin-bottom: 150px;
+
+  &__title {}
+
+  &__subtitle {
+    margin-bottom: 90px;
+
   }
 
   &__images {
@@ -225,140 +253,415 @@ margin-bottom: 80px;
 
   &__image {
     max-height: 447px;
-    > img{
+
+    >img {
       max-height: 447px;
       max-width: 100%;
     }
-    &-small{
 
-    }
-    &-big{
+    &-small {}
 
-    }
+    &-big {}
   }
 
   &__count {
     margin-top: 100px;
     text-align: center;
     color: #c5c5c5;
-    @include adaptiveFont(18,30);
+    @include adaptiveFont(18, 30);
     font-weight: 500;
     letter-spacing: 4px;
     cursor: pointer;
   }
 }
-.count{
+
+.count {
   color: #000000;
 
-  &-inactive{
+  &-inactive {
     color: #c5c5c5;
   }
 }
-.block {
+
+
+
+.travel {
+  margin-bottom: 150px;
+
+  &__title {}
+
+  &__subtitle {
+    margin-bottom: 65px;
+  }
+
+  &__card {}
+}
+
+.card-col {
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    flex: 0 0 calc(50% - 15px);
+  }
+
+  &__image {
+    margin-bottom: 60px;
+
+    >img {
+      max-width: 100%;
+    }
+  }
 
   &__title {
+    @include adaptiveFont(15, 19);
+    font-weight: 700;
+    letter-spacing: 6px;
+    margin-bottom: 30px;
+  }
+
+  &__text {
+    @include adaptiveFont(12, 19);
+    letter-spacing: 3.8px;
+    color: #848484;
+    line-height: 35px;
+    margin-bottom: 70px;
 
   }
 
-  &__subtitle {
-    margin-bottom: 90px;
-    max-width: 70vw;
+  &__button {
+    display: flex;
+  }
+
+  &__link {
+    background-color: #dddcdc;
+    @include adaptiveFont(12, 16);
+    letter-spacing: 3.2px;
+    line-height: 41px;
+    padding: 5px 30px;
   }
 }
 
+.next {
+  &__item {
+    justify-content: left; // 2 card image to the left
+  }
+}
+
+.contact {
+  background-color: #f4f4f4;
+
+  &__body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 150px 0;
+  }
+
+  &__text {}
+
+  &__title {
+    @include adaptiveFont(26, 30);
+    letter-spacing: 4.2px;
+    line-height: 41px;
+  }
+
+  &__subtitle {
+    @include adaptiveFont(16, 18);
+    color: #5b5b5c;
+    letter-spacing: 2.52px;
+  }
+
+  &__input {
+    color: #3a4047;
+    @include adaptiveFont(16, 22);
+    letter-spacing: 2px;
+    background: #f4f4f4;
+    border: 2px solid #7a7a7a;
+    padding: 21px;
+  }
+
+  &__button {
+    display: flex;
+  }
+
+  &__inputs {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__link {
+    @include adaptiveFont(16, 22);
+    color: #ffffff !important;
+    letter-spacing: 2px;
+    background: #3a4047;
+    padding: 25px 60px;
+  }
+}
+
+
+
+.footer {
+  padding:  30px 0 0 0;
+  &__nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+  }
+
+  &__list {
+    display: flex;
+
+    >li {
+      margin: 0 25px;
+    }
+  }
+
+  &__link {
+    text-transform: uppercase;
+    @include adaptiveFont(16, 22);
+    letter-spacing: 3.08px;
+  }
+
+  &__name {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 6.12px;
+    @include adaptiveFont(14, 18);
+    margin-bottom: 10px;
+  }
+
+  &__rights {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2.52px;
+    @include adaptiveFont(14, 18);
+    padding-bottom: 80px;
+  }
+}
 
 
 
 
 @media (max-width: 1440px) {
-  .container{
+  .container {
     max-width: 1440px; // 1380 + 60 padding
     margin: 0 auto;
     padding: 0 30px;
     width: 100%;
   }
-  .gallery{
-    &__count{
+
+  .gallery {
+    &__count {
       margin-top: 60px;
+    }
+  }
+
+  .contact {
+    &__body {
+      flex-wrap: wrap;
+      padding: 100px 0;
+    }
+
+    &__text {
+      flex: 0 0 100%;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    &__input {
+      padding: 20px 15px;
+      flex: 0 0 48%;
+      margin: 0 5px 20px 5px;
+
+    }
+
+
+    &__link {
+      padding: 23px 60px;
     }
   }
 }
 
 @media (max-width: 1024px) {
-  .container{
+  .container {
     max-width: 1024px; // 964 + 60 padding
     margin: 0 auto;
     padding: 0 30px;
     width: 100%;
   }
-  .gallery{
-  }
-}
-@media (max-width: 768px) {
-  .main{
-    &__social{
-      display: none;
-    }
-    &__title{
-      margin-top: 34vh;
-      margin-bottom: 10px;
-    }
-  }
-  .nav{
-    &__list{
-      > li{
-        margin: 0 25px;
-      }
-    }
-  }
-  .transparent-button{
-    &-link{
-      padding: 16px 60px;
-    }
-  }
-  .card-row{
-    &__item{
+
+  .gallery {}
+
+  .card-row {
+    &__item {
       flex: 0 0 100%;
-      &-hide{
+
+      &-hide {
         display: none;
       }
     }
-    &__name{
+
+    &__name {
       margin-bottom: 15px;
     }
-    &__title{
+
+    &__title {
       margin-bottom: 15px;
     }
-    &__image{
+
+    &__image {
       margin-bottom: 20px;
+      box-shadow: none;
+      justify-content: left;
     }
-    &__text{
+
+    &__text {
       margin-bottom: 20px;
       letter-spacing: 1.5px;
     }
   }
-  .about{
-    &__card{
+
+  .contact {
+
+    &__body {
+      align-items: flex-start;
+
+    }
+
+
+
+    &__button {
+      float: left;
+    }
+  }
+
+  .card-col {
+    &__text {
+      letter-spacing: 1.5px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    &__social {
+      display: none;
+    }
+
+    &__title {
+      margin-top: 34vh;
+      margin-bottom: 10px;
+    }
+  }
+
+  .nav {
+    &__list {
+      >li {
+        margin: 0 25px;
+      }
+    }
+  }
+
+  .transparent-button {
+    &-link {
+      padding: 16px 60px;
+    }
+  }
+
+  .about {
+    &__card {
       padding: 40px 0;
     }
   }
-  .gallery{
-    &__title{
+
+  .gallery {
+
+
+    &__count {
+      margin-top: 40px;
+    }
+  }
+
+  .block {
+    &__title {
       letter-spacing: 6.5px;
       margin-bottom: 20px;
     }
-    &__subtitle{
+
+    &__subtitle {
       letter-spacing: 2px;
       margin-bottom: 25px;
       max-width: 80vw;
     }
-    &__count{
-      margin-top: 40px;
+  }
+
+  .card-col {
+    &__row {
+      flex-wrap: wrap;
+    }
+
+    &__image {
+      margin-bottom: 40px;
+    }
+
+    &__item {
+      flex: 0 0 100%;
+      margin-bottom: 30px;
+    }
+
+    &__text {
+      line-height: 20px;
+      margin-bottom: 40px;
+    }
+
+    &__link {
+      padding: 2px 20px;
+    }
+  }
+
+  .contact {
+    &__body {
+      justify-content: start;
+    }
+
+    &__input {
+      margin: 0 0 20px 0;
+      flex: 0 0 100%;
+      padding: 16px 15px;
+    }
+
+    &__title {
+      line-height: 1;
+      margin-bottom: 10px;
+
+    }
+
+    &__link {
+      padding: 19px 60px;
+    }
+  }
+  .footer{
+    &__list{
+      justify-content: space-around;
+      flex-wrap: wrap;
+      > li{
+        margin: 0 10px;
+        &:nth-child(1),&:nth-child(2){
+          margin-bottom: 20px;
+        }
+        
+      }
+
     }
   }
 }
+
 @media (max-width: 425px) {
-  .container{
+  .container {
     max-width: 425px; // 395 + 30 padding
     margin: 0 auto;
     padding: 0 15px;
